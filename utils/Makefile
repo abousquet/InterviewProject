@@ -1,7 +1,7 @@
 AR=ar
 ARFLAGS=-cvq
 CC=g++
-CFLAGS=-c -Wall -fPIC
+CFLAGS=-c -Wall -fPIC -std=c++11
 LDFLAGS= -shared
 SOURCES=TcpClient.cc TcpServer.cc RequestQueue.cc TcpSocket.cc CommonUtils.cc
 OBJECTS=$(SOURCES:.cc=.o)

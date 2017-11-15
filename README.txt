@@ -19,7 +19,7 @@ Here are the tasks to be completed :
       defined in the header.
 
 2) Complete dataProducer declared in utils/CommonUtils.hh, the problem is
-      define in the header.
+      defined in the header.
 
 3) Write the connect function for the TcpClient class, the description is
       defined in the class's declaration.
@@ -33,7 +33,7 @@ Here are the tasks to be completed :
       how they work)
 
 6) Determine if the utils library should be used as a static or shared library.
-      Both targets are available in the utils Makefile as "static" and "clean"
+      Both targets are available in the utils Makefile as "static" and "shared"
       respectively. Be prepared to justify your answer.
 
 7) Spin three threads with default attributes from within the server's main

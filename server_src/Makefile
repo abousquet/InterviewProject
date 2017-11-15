@@ -1,5 +1,5 @@
 CC=g++
-CFLAGS=-c -Wall -g
+CFLAGS=-c -Wall -g -std=c++11
 INCLUDES = -I../utils
 LDFLAGS= -L../lib -lutils -lpthread
 SOURCES=server_main.cc
@@ -9,7 +9,7 @@ EXECUTABLE=Server
 all: $(SOURCES) $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
 	-cp $(EXECUTABLE) ../bin/
 
 .cc.o:

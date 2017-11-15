@@ -3,7 +3,7 @@
 namespace Utils{
 
 RequestQueue::RequestQueue():
-   queueMutex(), queue()
+   queueMutex(), requestQueue()
 {}
 RequestQueue::~RequestQueue()
 {}
@@ -14,14 +14,14 @@ RequestQueue::~RequestQueue()
 **/
 void RequestQueue::push( Request data)
 {
-   queue.push(data);
+   requestQueue.push(data);
 }
 Request RequestQueue::pop()
 {
-   if (!queue.empty())
+   if (!requestQueue.empty())
    {
-      Request retVal = queue.front();
-      queue.pop();
+      Request retVal = requestQueue.front();
+      requestQueue.pop();
       return retVal;
    }
    else
@@ -32,7 +32,7 @@ Request RequestQueue::pop()
 
 bool RequestQueue::isEmpty()
 {
-   return queue.empty();
+   return requestQueue.empty();
 }
 
 }

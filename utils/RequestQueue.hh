@@ -21,7 +21,7 @@ public:
 
 private:
    mutex queueMutex;
-   queue<Request> queue;
+   queue<Request> requestQueue;
 };
 
 };
