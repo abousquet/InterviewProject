@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+
+bin/Client
+bin/Server
+server_src/Server
+client_src/Client

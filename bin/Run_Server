@@ -1,0 +1,16 @@
+#! /bin/bash
+
+# add to run-time library path based on OS
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../lib/
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+   export DYLD_LIBRARY_PATH=$DY_LIBRARY_PATH:../lib/
+fi
+
+# default local port to 18999
+if [ "$#" -eq "0" ]; then
+   ARGS=18999
+else
+   ARGS="$@"
+fi
+./Server "$ARGS"
