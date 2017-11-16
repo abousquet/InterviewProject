@@ -10,6 +10,7 @@
 #include <unistd.h>
 #include <pthread.h>
 #include <set>
+#include <time.h>
 
 using namespace std;
 
@@ -21,6 +22,7 @@ Utils::RequestQueue toReadThread;
 Utils::RequestQueue toWriteThread;
 Utils::RequestQueue toDataThread;
 
+const struct timespec sleepTime = {0,  125000000L};
 
 using namespace std;
 
@@ -34,7 +36,10 @@ int main (int argc, char ** argv)
    int port = atoi(argv[1]);
    Utils::TcpServer server (port);
 
-   // TODO - Task 7
+   pthread_t temp;
+   pthread_create(&temp, NULL, &main_read_t, NULL);
+   pthread_create(&temp, NULL, &main_write_t, NULL);
+   pthread_create(&temp, NULL, &main_data_t, NULL);
 
    cout << "Listening for connection on " <<port <<"..." << endl;
    if (server.listen() == 0)
@@ -72,7 +77,7 @@ void * main_read_t(void * data)
          }
          readingSet.insert(newFd);
       }
-      int fdToRead = Utils::pollWrapper(readingSet, true, 50);
+      int fdToRead = Utils::pollWrapper(readingSet, true, 150);
       if (fdToRead > 0)
       {
          Utils::TcpClient client(fdToRead);
@@ -83,9 +88,11 @@ void * main_read_t(void * data)
             readingSet.erase(client.getFd());
          }
       }
+      nanosleep(&sleepTime, NULL);
    }
    return NULL;
 }
+
 void * main_write_t(void * data)
 {
    while (true)
@@ -104,6 +111,7 @@ void * main_write_t(void * data)
             toReadThread.push(Utils::Request(client.getFd(), ""));
          }
       }
+      nanosleep(&sleepTime, NULL);
    }
    return NULL;
 }
@@ -121,6 +129,7 @@ void * main_data_t(void * data)
          string strength = Utils::dataFunction(request.second);
          toWriteThread.push(Utils::Request(request.first, strength));
       }
+      nanosleep(&sleepTime, NULL);
    }
    return NULL;
 }

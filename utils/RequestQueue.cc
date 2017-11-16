@@ -3,25 +3,25 @@
 namespace Utils{
 
 RequestQueue::RequestQueue():
-   queueMutex(), requestQueue()
+   queueMutex(), rqueue()
 {}
 RequestQueue::~RequestQueue()
 {}
 
 /**
-*    TODO - Task 5
+*    TODO - Task 6
 *    Make all non-constructor/deconstructor functions thread safe.
 **/
 void RequestQueue::push( Request data)
 {
-   requestQueue.push(data);
+   rqueue.push(data);
 }
 Request RequestQueue::pop()
 {
-   if (!requestQueue.empty())
+   if (!rqueue.empty())
    {
-      Request retVal = requestQueue.front();
-      requestQueue.pop();
+      Request retVal = rqueue.front();
+      rqueue.pop();
       return retVal;
    }
    else
@@ -32,7 +32,7 @@ Request RequestQueue::pop()
 
 bool RequestQueue::isEmpty()
 {
-   return requestQueue.empty();
+   return rqueue.empty();
 }
 
 }

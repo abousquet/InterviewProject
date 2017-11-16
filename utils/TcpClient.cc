@@ -4,6 +4,7 @@
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <unistd.h>
+#include <string.h>
 
 Utils::TcpClient::TcpClient() : TcpSocket()
 {
@@ -18,9 +19,11 @@ Utils::TcpClient::~TcpClient()
 
 bool Utils::TcpClient::connect(int remotePort)
 {
-   // Write code for Task 3
-
-   return false; // placed here to get rid of warnings
+   struct sockaddr_in serv_addr;
+   memset(&serv_addr, 0, sizeof serv_addr);
+   serv_addr.sin_family = AF_INET;
+   serv_addr.sin_port = htons(remotePort); // short, network byte order
+   return ::connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) == 0;
 }
 
 int Utils::TcpClient::pollForInput()

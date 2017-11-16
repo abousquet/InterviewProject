@@ -5,6 +5,10 @@
 #include <iostream>
 #include <string.h>
 #include <errno.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+
+using namespace std;
 
 Utils::TcpServer::TcpServer(int localPort) : TcpSocket()
 {
@@ -31,10 +35,10 @@ int Utils::TcpServer::listen()
    return ::listen(sockfd, 5);
 }
 
-// TODO - Task 4
+// TODO - Task 2
 int Utils::TcpServer::accept()
 {
-   // Write code for Task 4
+   // Write code for Task 2
    int newfd = ::accept(sockfd, NULL, NULL);
    if (newfd >= 0)
    {
