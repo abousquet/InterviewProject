@@ -38,7 +38,13 @@ int main(int argc, char** argv)
          if ((getLineVal = getline(&line, &size, stdin)) < 2) {
 
             producedData = Utils::dataProducer();
-            cout << "Generated Password: " << producedData << endl;
+            if (producedData == "")
+            {
+              // Data producer not implemented yet
+              free(line);
+              continue;
+            }
+            cout  << "Generated Password: " << producedData << endl;
             useLine = false;
          }
          if (client.pollForOutput() >= 1)

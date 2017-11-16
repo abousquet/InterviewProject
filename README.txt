@@ -9,6 +9,11 @@ You may be asked questions about your solutions and the code that is already
 there; therefore emphasis should placed on both completing AND understanding the
 project.
 
+Each of the tasks are designed to be modularized, meaning that you may complete
+them in any order you'd like and the project will still compile. If you decide
+to skip task 1, you may use either shared or static libraries to compile and run
+the project.
+
 Note: The tasks can be easily found by performing 'grep -ir TODO *' from the top
 project directory.
 
@@ -22,6 +27,10 @@ Here are the tasks to be completed :
 2) Modify the accept function for the TcpServer class to print both the
       remote IP and port of the connecting client in the following format:
          Accepting new remote connection from <ip_address>:<port>
+      You can check that the correct port is being printed by using
+      "netstat | grep <listenport>" on Linux or
+      "lsof | grep <listen port>" on Darwin where listen port is the port the
+      server is listening on. (hint: use inet_ntoa() and ntohs())
 
 3) Complete dataFunction declared in utils/CommonUtils.hh, the problem is
       defined in the header.
@@ -32,10 +41,7 @@ Here are the tasks to be completed :
 5) Modify the RequestQueue class to be thread-safe by using its mutex;
 
 6) Trace the server program (server_main.cc). How does it work? What's the
-      structure of it? How could it be improved? Expect other questions, so
-      study it thoroughly.
+      structure of it? How could it be improved? How is I/O performed? Expect
+      other questions.
 
-To run either the Client or Server, cd to bin/ where there are two run scripts,
-Run_Client and Run_Server, that take care of linking if it wasn't done at
-compile time. You may pass a parameter to either to be used as the port number
-to connect/listen to, the default port is 18999.
+** See the bin/README.txt for information on running the code.
