@@ -17,7 +17,7 @@ string Utils::dataFunction(string data)
 {
    // Write code for Task 3
 
-   return ""; // placed here to get rid of warnings
+   return data; // placed here to get rid of warnings
 }
 
 string Utils::dataProducer()

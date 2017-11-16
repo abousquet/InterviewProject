@@ -26,10 +26,12 @@ objects: $(OBJECTS)
 
 $(STATICLIBRARY): $(OBJECTS)
 	$(AR) $(ARFLAGS) $@ $(OBJECTS)
+	@mkdir $(LIBDIR)
 	-cp $(STATICLIBRARY) $(LIBDIR)
 
 $(SHAREDLIBRARY): $(OBJECTS)
 	$(CXX) $(LDFLAGS) $(OBJECTS) -o $@
+	@mkdir $(LIBDIR)
 	-cp $(SHAREDLIBRARY) $(LIBDIR)
 
 .cc.o:
