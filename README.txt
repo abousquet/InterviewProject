@@ -10,32 +10,32 @@ there; therefore emphasis should placed on both completing AND understanding the
 project.
 
 Note: The tasks can be easily found by performing 'grep -ir TODO *' from the top
-project directory. All tasks, with the exception of task 6, will be shown.
+project directory.
 
 ********************************************************************************
 Here are the tasks to be completed :
 
-1) Complete dataFunction declared in utils/CommonUtils.hh, the problem is
-      defined in the header.
-
-2) Complete dataProducer declared in utils/CommonUtils.hh, the problem is
-      defined in the header.
-
-3) Write the connect function for the TcpClient class, the description is
-      defined in the class's declaration.
-
-4) Modify the accept function for the TcpServer class to print both the
-      remote IP and port of the connecting client in the following format:
-         Accepting new remote connection from <ip_address>:<port>
-
-5) Modify the RequestQueue class to be thread-safe by using its mutex (it may
-      be beneficial to look into RIIA locks in c++, make sure you understand
-      how they work)
-
-6) Determine if the utils library should be used as a static or shared library.
+1) Determine if the utils library should be used as a static or shared library.
       Both targets are available in the utils Makefile as "static" and "shared"
       respectively. Be prepared to justify your answer.
 
-7) Spin three threads with default attributes from within the server's main
-      function. The start_routines should be main_read_t, main_write_t, and
-      main_data_t.
+2) Modify the accept function for the TcpServer class to print both the
+      remote IP and port of the connecting client in the following format:
+         Accepting new remote connection from <ip_address>:<port>
+
+3) Complete dataFunction declared in utils/CommonUtils.hh, the problem is
+      defined in the header.
+
+4) Complete dataProducer declared in utils/CommonUtils.hh, the problem is
+      defined in the header.
+
+5) Modify the RequestQueue class to be thread-safe by using its mutex;
+
+6) Trace the server program (server_main.cc). How does it work? What's the
+      structure of it? How could it be improved? Expect other questions, so
+      study it thoroughly.
+
+To run either the Client or Server, cd to bin/ where there are two run scripts,
+Run_Client and Run_Server, that take care of linking if it wasn't done at
+compile time. You may pass a parameter to either to be used as the port number
+to connect/listen to, the default port is 18999.

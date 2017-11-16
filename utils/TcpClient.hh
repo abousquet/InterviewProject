@@ -14,12 +14,6 @@ public:
    TcpClient(int fd);
    ~TcpClient();
 
-   /**
-   *  TODO - Task 3
-   *  The connect function will connect to a port specified by remotePort on the
-   *  local IP address (localhost or 127.0.0.1) and return true if the operation
-   *  was successful.
-   **/
    bool connect(int remotePort);
 
    int pollForInput();

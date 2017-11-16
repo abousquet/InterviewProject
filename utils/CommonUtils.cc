@@ -13,16 +13,16 @@ static const string MEDIUM_STRING  = "MEDIUM";
 static const string WEAK_STRING    = "WEAK";
 static const string INVALID_STRING = "INVALID";
 
-string Utils::dataFunction(string password)
+string Utils::dataFunction(string data)
 {
-   // Write code for Task 1
+   // Write code for Task 3
 
    return ""; // placed here to get rid of warnings
 }
 
 string Utils::dataProducer()
 {
-   // Write code for Task 2
+   // Write code for Task 4
 
    return ""; // placed here to get rid of warnings
 }

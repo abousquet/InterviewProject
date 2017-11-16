@@ -1,7 +1,5 @@
-AR=ar
 ARFLAGS=-cvq
-CC=g++
-CFLAGS=-c -Wall -fPIC -std=c++11
+CXXFLAGS=-c -Wall -fPIC -std=c++11
 LDFLAGS= -shared
 SOURCES=TcpClient.cc TcpServer.cc RequestQueue.cc TcpSocket.cc CommonUtils.cc
 OBJECTS=$(SOURCES:.cc=.o)
@@ -28,18 +26,16 @@ objects: $(OBJECTS)
 
 $(STATICLIBRARY): $(OBJECTS)
 	$(AR) $(ARFLAGS) $@ $(OBJECTS)
-	-mkdir $(LIBDIR)
 	-cp $(STATICLIBRARY) $(LIBDIR)
 
 $(SHAREDLIBRARY): $(OBJECTS)
-	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
-	-mkdir $(LIBDIR)
+	$(CXX) $(LDFLAGS) $(OBJECTS) -o $@
 	-cp $(SHAREDLIBRARY) $(LIBDIR)
 
 .cc.o:
-	$(CC) $(CFLAGS) $< -o $@
+	$(CXX) $(CXXFLAGS) $< -o $@
 
-clean:
+clean: clean_shared clean_static
 	$(RM) $(OBJECTS)
 	$(RM) $(LIBNAME).*
 	$(RM) $(LIBDIR)$(LIBNAME).*

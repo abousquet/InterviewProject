@@ -9,7 +9,7 @@ namespace Utils {
 typedef pair<int, string> Request;
 
 /**
-*   TODO - Task 1
+*   TODO - Task 3
 *   This function accepts a string password as a parameter and returns a string
 *   representing the strength of the password parameter denoted by
 *   STRONG_STRING, MEDIUM_STRING, WEAK_STRING and INVALID_STRING . The strength
@@ -27,10 +27,10 @@ typedef pair<int, string> Request;
 *   character that does not satisfy conditions 1, 2, 3 or 5.
 *
 **/
-std::string dataFunction(std::string password);
+std::string dataFunction(std::string data);
 
 /**
-*   TODO - Task 2
+*   TODO - Task 4
 *   This function generates a random password string consisting of the valid
 *   characters defined in Task 1. The string will be of random length between 6
 *   and 15 characters long. Ensure that the function will not generate the same
