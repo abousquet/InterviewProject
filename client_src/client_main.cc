@@ -35,12 +35,15 @@ int main(int argc, char** argv)
          string producedData;
          size_t size;
          int getLineVal;
+         cout << "Type a password [ENTER FOR GENERATED]: ";
          if ((getLineVal = getline(&line, &size, stdin)) < 2) {
 
             producedData = Utils::dataProducer();
             if (producedData == "")
             {
               // Data producer not implemented yet
+              cout << "dataProducer returned \"\"... it may not be implemented"
+                  << endl << endl;
               free(line);
               continue;
             }
@@ -61,7 +64,7 @@ int main(int argc, char** argv)
             {
                string str;
                client.receive(str);
-               cout << "Password strength is: "<< str << endl;
+               cout << "Password strength is: "<< str << endl<< endl;
             }
             else
             {
