@@ -9,7 +9,7 @@ RequestQueue::~RequestQueue()
 {}
 
 /**
-*    TODO - Task 6
+*    TODO - Task 4
 *    Make all non-constructor/deconstructor functions thread safe.
 **/
 void RequestQueue::push( Request data)

@@ -84,6 +84,8 @@ void * main_read_t(void * data)
          string password;
          if (client.receive(password))
          {
+            cout << "Received password \'" << password << "\' from a client"
+                << endl;
             toDataThread.push(Utils::Request(client.getFd(), password));
             readingSet.erase(client.getFd());
          }

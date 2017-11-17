@@ -10,6 +10,7 @@ SHAREDLIBRARY=$(LIBNAME).$(SHAREDEXT)
 STATICLIBRARY=$(LIBNAME).$(STATICEXT)
 LIBDIR=../lib/
 RM=-rm -f
+MKDIR=mkdir -p
 
 help:
 	@echo "Targets: "
@@ -26,12 +27,12 @@ objects: $(OBJECTS)
 
 $(STATICLIBRARY): $(OBJECTS)
 	$(AR) $(ARFLAGS) $@ $(OBJECTS)
-	@mkdir $(LIBDIR)
+	@$(MKDIR) $(LIBDIR)
 	-cp $(STATICLIBRARY) $(LIBDIR)
 
 $(SHAREDLIBRARY): $(OBJECTS)
 	$(CXX) $(LDFLAGS) $(OBJECTS) -o $@
-	@mkdir $(LIBDIR)
+	@$(MKDIR) $(LIBDIR)
 	-cp $(SHAREDLIBRARY) $(LIBDIR)
 
 .cc.o:
