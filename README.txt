@@ -19,8 +19,9 @@ project directory.
 
 It is suggested that you compile and run the project before attempting any of
 the tasks... It should allow you to type a password that will be sent to the
-server, returned from the server and printed. E.g. if my password is 'password',
-the program is
+server, returned from the server and printed. E.g. if the client enters 'passwor
+d' into stdin, the server will return 'password', which will be printed on the c
+lient side.
 
 ********************************************************************************
 Here are the tasks to be completed :
